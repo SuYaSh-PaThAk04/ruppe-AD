@@ -1,0 +1,2114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RupeeLetter Connect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --green: #1a7a4a;
+        --green-light: #e8f5ee;
+        --green-mid: #2d9e63;
+        --green-btn: #22a85a;
+        --green-btn-hover: #1a8f4c;
+        --red-light: #fff0f0;
+        --red: #d63b3b;
+        --text-primary: #0f1a13;
+        --text-secondary: #4a5e52;
+        --text-muted: #8a9e92;
+        --border: #e4ede8;
+        --surface: #f8faf9;
+        --white: #ffffff;
+        --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
+        --radius: 16px;
+        --radius-sm: 10px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        color: var(--text-primary);
+        background: var(--white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 24px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        font-family: "Fraunces", serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--green);
+      }
+      .nav-logo span {
+        color: var(--text-primary);
+      }
+      .nav-badge {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 72px 24px;
+      }
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 10px;
+      }
+      h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(34px, 6vw, 52px);
+        font-weight: 400;
+        line-height: 1.12;
+        letter-spacing: -1.5px;
+        color: var(--text-primary);
+        margin-bottom: 18px;
+      }
+      h1 em {
+        font-style: italic;
+        font-weight: 800;
+        color: var(--green);
+      }
+      h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(24px, 4vw, 34px);
+        font-weight: 600;
+        letter-spacing: -0.8px;
+        line-height: 1.2;
+        margin-bottom: 14px;
+        color: var(--text-primary);
+      }
+
+      /* BUTTONS */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--green-btn);
+        color: white;
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 16px 36px;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          box-shadow 0.2s;
+        box-shadow: 0 4px 20px rgba(34, 168, 90, 0.3);
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: var(--green-btn-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 28px rgba(34, 168, 90, 0.35);
+      }
+      .microcopy {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: 10px;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        padding-top: 130px;
+        padding-bottom: 60px;
+        text-align: center;
+        background: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 122, 74, 0.07) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 5px 12px;
+        border-radius: 20px;
+        margin-bottom: 24px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--green-mid);
+        border-radius: 50%;
+      }
+      .hero-sub {
+        font-size: 17px;
+        color: var(--text-secondary);
+        max-width: 420px;
+        margin: 0 auto 32px;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+
+      /* HERO VISUAL — floating stats */
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+      .hero-stat-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 20px;
+        text-align: left;
+        box-shadow: var(--shadow-md);
+        min-width: 140px;
+        animation: floatCard 4s ease-in-out infinite;
+      }
+      .hero-stat-card:nth-child(2) {
+        animation-delay: 1.3s;
+      }
+      .hero-stat-card:nth-child(3) {
+        animation-delay: 2.6s;
+      }
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .hero-stat-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-bottom: 4px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      .hero-stat-value {
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: -0.5px;
+      }
+      .hero-stat-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      /* HERO GROWTH CHART */
+      .hero-chart-wrap {
+        max-width: 480px;
+        margin: 0 auto 36px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px 20px 12px;
+        box-shadow: var(--shadow-md);
+      }
+      .hero-chart-title {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        text-align: left;
+      }
+      .hero-chart-legend {
+        display: flex;
+        gap: 16px;
+        margin-top: 10px;
+        justify-content: flex-start;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+      .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      /* ── TRUST BRIDGE ── */
+      #trust {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .trust-desc {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 28px;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .trust-tagline {
+        font-size: 14px;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+      }
+      .check-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .check-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .check-icon {
+        width: 22px;
+        height: 22px;
+        background: var(--green);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .check-icon svg {
+        width: 12px;
+        height: 12px;
+        stroke: white;
+        stroke-width: 2.5;
+        fill: none;
+      }
+
+      /* HOW IT WORKS illustration */
+      .how-it-works {
+        margin-top: 40px;
+      }
+      .hiw-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .hiw-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .hiw-step {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding-bottom: 24px;
+        position: relative;
+      }
+      .hiw-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 19px;
+        top: 40px;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+      .hiw-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--green-light);
+        border: 2px solid var(--green-mid);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--green);
+        flex-shrink: 0;
+        z-index: 1;
+      }
+      .hiw-content h4 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 3px;
+      }
+      .hiw-content p {
+        font-size: 13px;
+        color: var(--text-secondary);
+        font-weight: 300;
+      }
+
+      /* ── CALCULATOR ── */
+      #calculator {
+        background: var(--white);
+      }
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        box-shadow: var(--shadow-md);
+      }
+      .slider-group {
+        margin-bottom: 28px;
+      }
+      .slider-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+      }
+      .slider-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+      .slider-value {
+        font-family: "Fraunces", serif;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--green);
+        letter-spacing: -0.5px;
+      }
+      .slider-range {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      input[type="range"] {
+        width: 100%;
+        height: 4px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: var(--border);
+        border-radius: 4px;
+        outline: none;
+        margin: 6px 0;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--green-btn);
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(34, 168, 90, 0.3);
+        border: 3px solid white;
+        transition: transform 0.15s;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+      }
+      .helper-text {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      /* 3-STOP SLIDER LABELS */
+      .ret-stops {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+        position: relative;
+      }
+      .ret-stop {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        max-width: 90px;
+      }
+      .ret-stop-mid {
+        align-items: center;
+        text-align: center;
+      }
+      .ret-stop-end {
+        align-items: flex-end;
+        text-align: right;
+      }
+      .ret-stop-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        line-height: 1.3;
+        transition: color 0.2s;
+      }
+      .ret-stop-label.active {
+        color: var(--green);
+      }
+      .ret-stop-pct {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      /* CUSTOM SNAP SLIDER */
+      .snap-slider-wrap {
+        padding: 10px 0 4px;
+      }
+      .snap-track {
+        position: relative;
+        height: 4px;
+        background: var(--border);
+        border-radius: 4px;
+        margin: 12px 0 6px;
+      }
+      .snap-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--green-btn);
+        border-radius: 4px;
+        transition: width 0.3s ease;
+        width: 50%;
+      }
+      .snap-stop {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 2px solid var(--border);
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        z-index: 1;
+      }
+      .snap-stop.passed {
+        border-color: var(--green-btn);
+        background: var(--green-btn);
+      }
+      .snap-stop.current {
+        border-color: var(--green-btn);
+        background: var(--white);
+      }
+      .snap-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--green-btn);
+        border: 3px solid white;
+        box-shadow: 0 2px 8px rgba(34, 168, 90, 0.35);
+        cursor: grab;
+        z-index: 2;
+        transition:
+          left 0.3s ease,
+          transform 0.15s;
+        left: 50%;
+      }
+      .snap-thumb:active {
+        cursor: grabbing;
+        transform: translate(-50%, -50%) scale(1.12);
+      }
+
+      /* ── RESULTS ── */
+      #results {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        display: none;
+      }
+      .results-headline {
+        font-family: "Fraunces", serif;
+        font-size: clamp(22px, 4vw, 34px);
+        font-weight: 700;
+        letter-spacing: -0.8px;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+      .results-headline .amount {
+        color: var(--green);
+      }
+      .results-sub {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        font-weight: 300;
+      }
+      .results-cards {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .result-card {
+        border-radius: var(--radius-sm);
+        padding: 18px 14px;
+        text-align: center;
+      }
+      .result-card.current {
+        background: var(--red-light);
+        border: 1.5px solid #f5c0c0;
+      }
+      .result-card.optimized {
+        background: var(--green-light);
+        border: 1.5px solid #b8dfc9;
+      }
+      .result-card-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .result-card.current .result-card-label {
+        color: var(--red);
+      }
+      .result-card.optimized .result-card-label {
+        color: var(--green);
+      }
+      .result-pct {
+        font-family: "Fraunces", serif;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .result-card.current .result-pct {
+        color: var(--red);
+      }
+      .result-card.optimized .result-pct {
+        color: var(--green);
+      }
+      .result-amount {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .result-period {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+      .results-arrow {
+        font-size: 20px;
+        color: var(--text-muted);
+        padding: 0 6px;
+        text-align: center;
+      }
+      .loss-banner {
+        background: #fff5f5;
+        border: 1px solid #f5c0c0;
+        border-radius: var(--radius-sm);
+        padding: 14px 18px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .loss-banner strong {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--red);
+      }
+      .loss-caveat {
+        font-size: 13px;
+        color: var(--text-muted);
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 24px;
+      }
+
+      /* RESULTS AREA CHART */
+      .results-chart-wrap {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 20px 16px 12px;
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-sm);
+      }
+      .results-chart-title {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .chart-legend {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+      }
+      .chart-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+      .chart-legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      /* ── ADVISOR ── */
+      #advisor {
+        background: var(--white);
+      }
+      .advisor-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 20px;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
+      }
+      .advisor-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--green-mid), var(--green-btn));
+      }
+      .matched-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 4px 10px;
+        border-radius: 20px;
+        margin-bottom: 18px;
+      }
+      .matched-pill::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: var(--green-mid);
+        border-radius: 50%;
+      }
+      .advisor-profile {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+      .advisor-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--green-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fraunces", serif;
+        font-size: 22px;
+        color: var(--green);
+        font-weight: 600;
+        flex-shrink: 0;
+        border: 2px solid var(--green-light);
+      }
+      .advisor-info h3 {
+        font-family: "Fraunces", serif;
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+      .advisor-title {
+        font-size: 13px;
+        color: var(--green);
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .advisor-stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+      .stat svg {
+        width: 13px;
+        height: 13px;
+        stroke: var(--green);
+        stroke-width: 2;
+        fill: none;
+      }
+      .advisor-specialty {
+        font-size: 14px;
+        color: var(--text-secondary);
+        padding: 12px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 18px;
+        font-weight: 300;
+      }
+
+      /* RATING VISUAL */
+      .rating-visual {
+        margin-bottom: 20px;
+      }
+      .rating-visual-title {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .rating-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .rating-star {
+        font-size: 11px;
+        color: var(--text-muted);
+        width: 16px;
+        text-align: right;
+      }
+      .rating-bar-track {
+        flex: 1;
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .rating-bar-fill {
+        height: 100%;
+        background: var(--green-mid);
+        border-radius: 3px;
+        transition: width 1s ease;
+      }
+      .rating-count {
+        font-size: 11px;
+        color: var(--text-muted);
+        width: 24px;
+      }
+
+      /* ── TRUST STRIP ── */
+      #trust-strip {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 48px 24px;
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .trust-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 16px 18px;
+        box-shadow: var(--shadow-sm);
+      }
+      .trust-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--green-light);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .trust-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--green);
+        stroke-width: 1.8;
+        fill: none;
+      }
+      .trust-item-content h4 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+      .trust-item-content p {
+        font-size: 13px;
+        color: var(--text-secondary);
+        font-weight: 300;
+      }
+      .social-proof {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+      .proof-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 7px 14px;
+        border-radius: 20px;
+        border: 1px solid #c8e6d4;
+      }
+      .proof-pill::before {
+        content: "✓";
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      /* ANIMATED STATS ROW */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 32px auto 0;
+        max-width: 680px;
+      }
+      .stat-box {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 16px 12px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+      }
+      .stat-box-value {
+        font-family: "Fraunces", serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: -0.8px;
+        margin-bottom: 4px;
+      }
+      .stat-box-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* ── LEAD FORM ── */
+      #form {
+        background: var(--white);
+      }
+      .form-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        box-shadow: var(--shadow-lg);
+      }
+      .form-title {
+        font-family: "Fraunces", serif;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+      .form-sub {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        font-weight: 300;
+      }
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+      }
+      .field input {
+        width: 100%;
+        padding: 13px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        color: var(--text-primary);
+        background: var(--white);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .field input:focus {
+        border-color: var(--green-mid);
+        box-shadow: 0 0 0 3px rgba(45, 158, 99, 0.1);
+      }
+      .field input::placeholder {
+        color: var(--text-muted);
+      }
+      .whatsapp-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+      .whatsapp-row input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--green);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .whatsapp-row span {
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+      .form-footer {
+        font-size: 12px;
+        color: var(--text-muted);
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      /* THANK YOU POPUP */
+      #thankyou-popup {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        z-index: 200;
+        background: var(--text-primary);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        white-space: nowrap;
+      }
+      #thankyou-popup.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      #thankyou-popup .popup-icon {
+        width: 20px;
+        height: 20px;
+        background: var(--green-btn);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      #thankyou-popup .popup-icon svg {
+        width: 11px;
+        height: 11px;
+        stroke: white;
+        stroke-width: 2.5;
+        fill: none;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 28px 24px;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        background: var(--surface);
+      }
+      footer p {
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.9;
+      }
+
+      /* FADE IN ON SCROLL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        opacity: 0;
+        animation: fadeUp 0.6s ease forwards;
+      }
+      .d1 {
+        animation-delay: 0.1s;
+      }
+      .d2 {
+        animation-delay: 0.22s;
+      }
+      .d3 {
+        animation-delay: 0.34s;
+      }
+      .d4 {
+        animation-delay: 0.46s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">RupeeLetter <span>Connect</span></div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-eyebrow fade-up d1">Free Advisor Consultation</div>
+        <h1 class="fade-up d2">
+          Are You Getting the <em>Best Returns</em> on Your Investments?
+        </h1>
+        <p class="hero-sub fade-up d3">
+          Most investors unknowingly earn 2–4% lower returns every year.
+        </p>
+
+        <!-- Small CTA button — now BEFORE stat cards -->
+        <div
+          class="fade-up d3"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 32px;
+          "
+        >
+          <button
+            class="btn-primary"
+            onclick="
+              document
+                .getElementById('calculator')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Check My Returns
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <p class="microcopy">Takes 30 seconds. No spam.</p>
+        </div>
+
+        <!-- Floating stat cards — now AFTER chart and CTA -->
+        <div class="hero-stats fade-up d4">
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Avg. gap found</div>
+            <div class="hero-stat-value">2.4%</div>
+            <div class="hero-stat-sub">per year</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Investors helped</div>
+            <div class="hero-stat-value">100+</div>
+            <div class="hero-stat-sub">and growing</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Consultation</div>
+            <div class="hero-stat-value">Free</div>
+            <div class="hero-stat-sub">no commitment</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST BRIDGE ── -->
+    <section id="trust">
+      <div class="container">
+        <div class="section-label reveal">About</div>
+        <h2 class="reveal">What is RupeeLetter Connect?</h2>
+        <p class="trust-desc reveal">
+          We connect you with verified financial advisors who help you optimize
+          your investments and improve returns.
+        </p>
+        <ul class="check-list reveal">
+          <li>
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            Personalized investment guidance
+          </li>
+          <li>
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            Verified &amp; experienced advisors
+          </li>
+          <li>
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            Free consultation — no commitment
+          </li>
+        </ul>
+        <p class="trust-tagline reveal">
+          Think of it as having an expert review your portfolio before you
+          invest more.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── CALCULATOR ── -->
+    <section id="calculator">
+      <div class="container">
+        <div class="section-label reveal">Returns Calculator</div>
+        <h2 class="reveal">Check if your money is working hard enough</h2>
+        <p
+          style="
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-weight: 300;
+          "
+          class="reveal"
+        >
+          See how much more you could be earning with optimized investments.
+        </p>
+        <div class="card reveal">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Monthly Investment</span>
+              <span class="slider-value" id="inv-display">₹44K</span>
+            </div>
+            <input
+              type="range"
+              id="investment"
+              min="1000"
+              max="100000"
+              value="44000"
+              step="1000"
+              oninput="updateCalc()"
+            />
+            <div class="slider-range">
+              <span>₹1,000</span><span>₹1,00,000</span>
+            </div>
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Your Current Return (Estimate)</span>
+              <span class="slider-value" id="ret-display">10%</span>
+            </div>
+
+            <!-- Custom 3-stop slider -->
+            <div class="snap-slider-wrap">
+              <div class="snap-track">
+                <div class="snap-fill" id="snap-fill"></div>
+                <!-- Stop markers -->
+                <div class="snap-stop" style="left: 0%"></div>
+                <div class="snap-stop" style="left: 50%"></div>
+                <div class="snap-stop" style="left: 100%"></div>
+                <!-- Thumb -->
+                <div class="snap-thumb" id="snap-thumb"></div>
+              </div>
+            </div>
+
+            <!-- Hidden range input for compatibility -->
+            <input
+              type="range"
+              id="returns"
+              min="0"
+              max="2"
+              value="1"
+              step="1"
+              oninput="snapUpdate()"
+              style="display: none"
+            />
+
+            <div class="ret-stops">
+              <div class="ret-stop">
+                <span class="ret-stop-label" id="stop-label-0"
+                  >Conservative</span
+                >
+                <span class="ret-stop-pct">8%</span>
+              </div>
+              <div class="ret-stop ret-stop-mid">
+                <span class="ret-stop-label" id="stop-label-1"
+                  >Average investor</span
+                >
+                <span class="ret-stop-pct">10–12%</span>
+              </div>
+              <div class="ret-stop ret-stop-end">
+                <span class="ret-stop-label" id="stop-label-2">Aggressive</span>
+                <span class="ret-stop-pct">14–15%</span>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn-primary"
+            onclick="showResults()"
+            style="max-width: 100%"
+          >
+            See My Potential
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+              <polyline points="16 7 22 7 22 13" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESULTS ── -->
+    <section id="results">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 8px">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#d63b3b"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+        <h2 class="results-headline" style="text-align: center">
+          You could be earning
+          <span class="amount" id="yearly-diff">₹66K</span> more every year
+        </h2>
+        <p class="results-sub" style="text-align: center">
+          Based on your inputs, your current returns may be lower than optimized
+          portfolios.
+        </p>
+
+        <div class="results-cards">
+          <div class="result-card current">
+            <div class="result-card-label">Current Returns</div>
+            <div class="result-pct" id="cur-pct">10.0%</div>
+            <div class="result-amount" id="cur-amt">₹79.20 L</div>
+            <div class="result-period">in 10 years</div>
+          </div>
+          <div class="results-arrow">→</div>
+          <div class="result-card optimized">
+            <div class="result-card-label">Optimized Returns</div>
+            <div class="result-pct" id="opt-pct">12.5%</div>
+            <div class="result-amount" id="opt-amt">₹85.80 L</div>
+            <div class="result-period">in 10 years</div>
+          </div>
+        </div>
+
+        <!-- Results area chart -->
+        <div class="results-chart-wrap">
+          <div class="results-chart-title">Wealth growth over 10 years</div>
+          <svg
+            width="100%"
+            height="130"
+            viewBox="0 0 440 130"
+            id="results-svg"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="rGradOpt" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22a85a" stop-opacity="0.3" />
+                <stop offset="100%" stop-color="#22a85a" stop-opacity="0.03" />
+              </linearGradient>
+              <linearGradient id="rGradCur" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#d63b3b" stop-opacity="0.2" />
+                <stop offset="100%" stop-color="#d63b3b" stop-opacity="0.02" />
+              </linearGradient>
+            </defs>
+            <line
+              x1="0"
+              y1="32"
+              x2="440"
+              y2="32"
+              stroke="#e4ede8"
+              stroke-width="1"
+              stroke-dasharray="4 4"
+            />
+            <line
+              x1="0"
+              y1="64"
+              x2="440"
+              y2="64"
+              stroke="#e4ede8"
+              stroke-width="1"
+              stroke-dasharray="4 4"
+            />
+            <line
+              x1="0"
+              y1="96"
+              x2="440"
+              y2="96"
+              stroke="#e4ede8"
+              stroke-width="1"
+              stroke-dasharray="4 4"
+            />
+            <path id="rCurArea" d="" fill="url(#rGradCur)" />
+            <path
+              id="rCurLine"
+              d=""
+              fill="none"
+              stroke="#d63b3b"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path id="rOptArea" d="" fill="url(#rGradOpt)" />
+            <path
+              id="rOptLine"
+              d=""
+              fill="none"
+              stroke="#22a85a"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle id="rCurDot" cx="440" cy="60" r="4" fill="#d63b3b" />
+            <circle id="rOptDot" cx="440" cy="20" r="4" fill="#22a85a" />
+            <text
+              id="rCurLabel"
+              x="436"
+              y="58"
+              font-size="10"
+              fill="#d63b3b"
+              font-family="DM Sans,sans-serif"
+              text-anchor="end"
+              font-weight="600"
+            ></text>
+            <text
+              id="rOptLabel"
+              x="436"
+              y="18"
+              font-size="10"
+              fill="#22a85a"
+              font-family="DM Sans,sans-serif"
+              text-anchor="end"
+              font-weight="600"
+            ></text>
+            <text
+              x="0"
+              y="128"
+              font-size="9"
+              fill="#bbb"
+              font-family="DM Sans,sans-serif"
+            >
+              Y1
+            </text>
+            <text
+              x="220"
+              y="128"
+              font-size="9"
+              fill="#bbb"
+              font-family="DM Sans,sans-serif"
+              text-anchor="middle"
+            >
+              Y5
+            </text>
+            <text
+              x="435"
+              y="128"
+              font-size="9"
+              fill="#bbb"
+              font-family="DM Sans,sans-serif"
+              text-anchor="end"
+            >
+              Y10
+            </text>
+          </svg>
+          <div class="chart-legend">
+            <div class="chart-legend-item">
+              <div class="chart-legend-dot" style="background: #22a85a"></div>
+              Optimized returns
+            </div>
+            <div class="chart-legend-item">
+              <div class="chart-legend-dot" style="background: #d63b3b"></div>
+              Current returns
+            </div>
+          </div>
+        </div>
+
+        <div class="loss-banner">
+          <strong
+            >That's potentially <span id="total-diff">₹6.60 L</span> lost over
+            time.</strong
+          >
+        </div>
+        <p class="loss-caveat">
+          Most investors don't realize this until it's too late.
+        </p>
+
+        <button
+          class="btn-primary"
+          style="max-width: 100%"
+          onclick="
+            document
+              .getElementById('advisor')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Fix My Returns
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ── ADVISOR ── -->
+    <section id="advisor">
+      <div class="container">
+        <div class="section-label reveal">Your Match</div>
+        <h2 class="reveal">Here's an expert who can help you improve this</h2>
+        <div class="advisor-card reveal">
+          <div class="matched-pill">Matched based on your profile</div>
+          <div class="advisor-profile">
+            <div class="advisor-avatar">PS</div>
+            <div class="advisor-info">
+              <h3>Priya Sharma</h3>
+              <div class="advisor-title">
+                SEBI Registered Investment Advisor
+              </div>
+              <div class="advisor-stats">
+                <div class="stat">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" /></svg
+                  >7+ years
+                </div>
+                <div class="stat">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" /></svg
+                  >100+ clients
+                </div>
+                <div class="stat">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="#f5a623"
+                    stroke="#f5a623"
+                    stroke-width="1"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    /></svg
+                  >4.9 rating
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="advisor-specialty">
+            Specializes in Mutual Funds &amp; Portfolio Optimization
+          </p>
+
+          <button
+            class="btn-primary"
+            style="max-width: 100%"
+            onclick="
+              document
+                .getElementById('form')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Talk to This Advisor
+          </button>
+        </div>
+
+        <!-- Second advisor card -->
+        <div class="advisor-card reveal" style="margin-top: 20px">
+          <div class="advisor-profile">
+            <div
+              class="advisor-avatar"
+              style="background: #eef2ff; color: #4a6cf7"
+            >
+              RK
+            </div>
+            <div class="advisor-info">
+              <h3>Rohan Kulkarni</h3>
+              <div class="advisor-title">
+                SEBI Registered Investment Advisor
+              </div>
+              <div class="advisor-stats">
+                <div class="stat">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" /></svg
+                  >5+ years
+                </div>
+                <div class="stat">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" /></svg
+                  >150+ clients
+                </div>
+                <div class="stat">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="#f5a623"
+                    stroke="#f5a623"
+                    stroke-width="1"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    /></svg
+                  >4.5 rating
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="advisor-specialty">
+            Specializes in Mutual Funds &amp; Retirement Planning
+          </p>
+          <button
+            class="btn-primary"
+            style="max-width: 100%"
+            onclick="
+              document
+                .getElementById('form')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Talk to This Advisor
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST STRIP ── -->
+    <section id="trust-strip">
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="trust-item-content">
+            <h4>Verified Advisors Only</h4>
+            <p>All advisors are SEBI certified</p>
+          </div>
+        </div>
+        <div class="trust-item reveal">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.42 19.42 0 0 1 4.43 9.88a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.34 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.3 10.9"
+              />
+              <line x1="23" y1="1" x2="1" y2="23" />
+            </svg>
+          </div>
+          <div class="trust-item-content">
+            <h4>No Spam Calls</h4>
+            <p>Connect only when you're ready</p>
+          </div>
+        </div>
+        <div class="trust-item reveal">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <div class="trust-item-content">
+            <h4>Your Data is Safe</h4>
+            <p>Bank-grade security</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated stats row -->
+      <div class="stats-row reveal">
+        <div class="stat-box">
+          <div class="stat-box-value" id="stat1">0</div>
+          <div class="stat-box-label">Investors connected offline</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-value" id="stat2">0%</div>
+          <div class="stat-box-label">Avg. returns improved</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-value" id="stat3">0★</div>
+          <div class="stat-box-label">Advisor avg. rating</div>
+        </div>
+      </div>
+
+      <div class="social-proof" style="max-width: 680px; margin: 24px auto 0">
+        <div class="proof-pill">100+ investors already connected</div>
+        <div class="proof-pill">Free consultation</div>
+      </div>
+    </section>
+
+    <!-- ── LEAD FORM ── -->
+    <section id="form">
+      <div class="container">
+        <div class="form-card reveal">
+          <div class="form-title">Get a free call with this advisor</div>
+          <p class="form-sub">No spam. No pressure. Just guidance.</p>
+          <div class="field">
+            <label>Name</label>
+            <input type="text" placeholder="Enter your full name" />
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter your mobile number" />
+          </div>
+          <label class="whatsapp-row">
+            <input type="checkbox" />
+            <span>Message me on WhatsApp instead</span>
+          </label>
+          <button
+            class="btn-primary"
+            style="max-width: 100%"
+            onclick="showThankYou()"
+          >
+            Book My Free Call
+          </button>
+          <p class="form-footer">No spam. No pressure. Just guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        <strong
+          style="
+            font-family: &quot;Fraunces&quot;, serif;
+            color: var(--green);
+            font-size: 14px;
+          "
+          >RupeeLetter Connect</strong
+        ><br />
+        SEBI Registered Investment Advisors · Free Consultation<br />
+        © 2026 RupeeLetter. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- THANK YOU POPUP -->
+    <div id="thankyou-popup">
+      <div class="popup-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+      </div>
+      Thank you for your interest!
+    </div>
+
+    <script>
+      // ── HELPERS ──
+      function sipFV(monthly, rate, years) {
+        const r = rate / 100 / 12;
+        const n = years * 12;
+        return monthly * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+      }
+      function fmtL(n) {
+        if (n >= 10000000) return "₹" + (n / 10000000).toFixed(1) + " Cr";
+        if (n >= 100000) return "₹" + (n / 100000).toFixed(2) + " L";
+        if (n >= 1000) return "₹" + (n / 1000).toFixed(0) + "K";
+        return "₹" + Math.round(n);
+      }
+      function fmtShort(n) {
+        if (n >= 100000) return "₹" + (n / 100000).toFixed(1) + " L";
+        if (n >= 1000) return "₹" + (n / 1000).toFixed(0) + "K";
+        return "₹" + Math.round(n);
+      }
+
+      // ── CALCULATOR ──
+      // ── SNAP SLIDER ──
+      const stopValues = [8, 11, 15]; // conservative, average, aggressive
+      const stopLabels = ["8%", "10–12%", "14–15%"];
+      const stopPositions = [0, 50, 100]; // percent
+      let currentStop = 1; // default: average investor
+
+      function snapUpdate() {
+        currentStop = parseInt(document.getElementById("returns").value);
+        renderSnapSlider();
+        updateCalc();
+      }
+
+      function renderSnapSlider() {
+        const thumb = document.getElementById("snap-thumb");
+        const fill = document.getElementById("snap-fill");
+        const stops = document.querySelectorAll(".snap-stop");
+        const pos = stopPositions[currentStop];
+
+        thumb.style.left = pos + "%";
+        fill.style.width = pos + "%";
+
+        stops.forEach((s, i) => {
+          s.classList.remove("passed", "current");
+          if (i < currentStop) s.classList.add("passed");
+          if (i === currentStop) s.classList.add("current");
+        });
+
+        // Highlight active label
+        for (let i = 0; i < 3; i++) {
+          const lbl = document.getElementById("stop-label-" + i);
+          if (lbl) lbl.classList.toggle("active", i === currentStop);
+        }
+
+        document.getElementById("ret-display").textContent =
+          stopLabels[currentStop];
+      }
+
+      // Click on track to snap to nearest stop
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector(".snap-track");
+        if (track) {
+          track.addEventListener("click", (e) => {
+            const rect = track.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            if (pct < 0.25) currentStop = 0;
+            else if (pct < 0.75) currentStop = 1;
+            else currentStop = 2;
+            document.getElementById("returns").value = currentStop;
+            renderSnapSlider();
+            updateCalc();
+          });
+
+          // Drag thumb
+          const thumb = document.getElementById("snap-thumb");
+          let dragging = false;
+          thumb.addEventListener("mousedown", () => (dragging = true));
+          thumb.addEventListener("touchstart", () => (dragging = true), {
+            passive: true,
+          });
+          document.addEventListener("mouseup", () => (dragging = false));
+          document.addEventListener("touchend", () => (dragging = false));
+          document.addEventListener("mousemove", (e) => {
+            if (!dragging) return;
+            const rect = track.getBoundingClientRect();
+            const pct = Math.max(
+              0,
+              Math.min(1, (e.clientX - rect.left) / rect.width),
+            );
+            if (pct < 0.25) currentStop = 0;
+            else if (pct < 0.75) currentStop = 1;
+            else currentStop = 2;
+            document.getElementById("returns").value = currentStop;
+            renderSnapSlider();
+            updateCalc();
+          });
+          document.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!dragging) return;
+              const touch = e.touches[0];
+              const rect = track.getBoundingClientRect();
+              const pct = Math.max(
+                0,
+                Math.min(1, (touch.clientX - rect.left) / rect.width),
+              );
+              if (pct < 0.25) currentStop = 0;
+              else if (pct < 0.75) currentStop = 1;
+              else currentStop = 2;
+              document.getElementById("returns").value = currentStop;
+              renderSnapSlider();
+              updateCalc();
+            },
+            { passive: true },
+          );
+        }
+        renderSnapSlider();
+        updateCalc();
+      });
+
+      function updateCalc() {
+        const inv = parseInt(document.getElementById("investment").value);
+        document.getElementById("inv-display").textContent = fmtShort(inv);
+      }
+
+      // ── RESULTS ──
+      function showResults() {
+        const inv = parseInt(document.getElementById("investment").value);
+        const ret = stopValues[currentStop];
+        const optRet = Math.min(ret + 2.5, 15);
+        const years = 10;
+        const curFV = sipFV(inv, ret, years);
+        const optFV = sipFV(inv, optRet, years);
+        const diff = optFV - curFV;
+        const yearlyDiff = diff / years;
+
+        document.getElementById("cur-pct").textContent = ret.toFixed(1) + "%";
+        document.getElementById("opt-pct").textContent =
+          optRet.toFixed(1) + "%";
+        document.getElementById("cur-amt").textContent = fmtL(curFV);
+        document.getElementById("opt-amt").textContent = fmtL(optFV);
+        document.getElementById("yearly-diff").textContent =
+          fmtShort(yearlyDiff);
+        document.getElementById("total-diff").textContent = fmtL(diff);
+
+        updateResultsChart(inv, ret, optRet);
+
+        const res = document.getElementById("results");
+        res.style.display = "block";
+        setTimeout(
+          () => res.scrollIntoView({ behavior: "smooth", block: "start" }),
+          100,
+        );
+
+        document.getElementById("sticky-btn") &&
+          (document.getElementById("sticky-btn").textContent =
+            "Book Free Call");
+        document.getElementById("sticky-btn") &&
+          (document.getElementById("sticky-btn").onclick = () =>
+            document
+              .getElementById("form")
+              .scrollIntoView({ behavior: "smooth" }));
+      }
+
+      function updateResultsChart(inv, ret, optRet) {
+        const pts = 10;
+        const maxFV = sipFV(inv, optRet, pts);
+        const W = 440,
+          H = 120;
+        const curPts = [],
+          optPts = [];
+        for (let i = 0; i <= pts; i++) {
+          const x = (i / pts) * W;
+          const curY = H - 8 - (sipFV(inv, ret, i || 0.001) / maxFV) * (H - 20);
+          const optY =
+            H - 8 - (sipFV(inv, optRet, i || 0.001) / maxFV) * (H - 20);
+          curPts.push([x, curY]);
+          optPts.push([x, optY]);
+        }
+        const curD = curPts
+          .map(
+            (p, i) =>
+              (i === 0 ? "M" : "L") + p[0].toFixed(1) + "," + p[1].toFixed(1),
+          )
+          .join(" ");
+        const optD = optPts
+          .map(
+            (p, i) =>
+              (i === 0 ? "M" : "L") + p[0].toFixed(1) + "," + p[1].toFixed(1),
+          )
+          .join(" ");
+        document.getElementById("rCurLine").setAttribute("d", curD);
+        document
+          .getElementById("rCurArea")
+          .setAttribute("d", curD + ` L${W},${H} L0,${H} Z`);
+        document.getElementById("rOptLine").setAttribute("d", optD);
+        document
+          .getElementById("rOptArea")
+          .setAttribute("d", optD + ` L${W},${H} L0,${H} Z`);
+        const last = curPts[curPts.length - 1];
+        const lastO = optPts[optPts.length - 1];
+        document.getElementById("rCurDot").setAttribute("cy", last[1]);
+        document.getElementById("rOptDot").setAttribute("cy", lastO[1]);
+        document.getElementById("rCurLabel").setAttribute("y", last[1] - 4);
+        document.getElementById("rOptLabel").setAttribute("y", lastO[1] - 4);
+        document.getElementById("rCurLabel").textContent = fmtShort(
+          sipFV(inv, ret, 10),
+        );
+        document.getElementById("rOptLabel").textContent = fmtShort(
+          sipFV(inv, optRet, 10),
+        );
+      }
+
+      // ── ANIMATED COUNTERS ──
+      function animateCounter(el, target, suffix, duration) {
+        let start = 0;
+        const step = target / (duration / 16);
+        const timer = setInterval(() => {
+          start += step;
+          if (start >= target) {
+            start = target;
+            clearInterval(timer);
+          }
+          el.textContent = Math.round(start) + suffix;
+        }, 16);
+      }
+
+      let statsAnimated = false;
+      function animateStats() {
+        if (statsAnimated) return;
+        statsAnimated = true;
+        animateCounter(document.getElementById("stat1"), 100, "+", 1200);
+        setTimeout(
+          () => animateCounter(document.getElementById("stat2"), 4, "%", 1000),
+          200,
+        );
+        setTimeout(() => {
+          let v = 0;
+          const el = document.getElementById("stat3");
+          const timer = setInterval(() => {
+            v += 0.05;
+            if (v >= 4.7) {
+              v = 4.7;
+              clearInterval(timer);
+            }
+            el.textContent = v.toFixed(1) + "★";
+          }, 16);
+        }, 400);
+      }
+
+      // ── THANK YOU POPUP ──
+      function showThankYou() {
+        const popup = document.getElementById("thankyou-popup");
+        popup.classList.add("show");
+        setTimeout(() => popup.classList.remove("show"), 3500);
+      }
+
+      // ── SCROLL REVEAL ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              if (entry.target.closest("#trust-strip")) animateStats();
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
