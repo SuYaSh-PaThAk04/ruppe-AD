@@ -142,11 +142,11 @@
       }
       h1.fu.d2 {
         font-weight: 400;
-        color: var(--ink-2);
+        color: var(--ink);
       }
       h1 em {
         font-style: italic;
-        color: var(--forest);
+        color: #e10808;
       }
       h2 {
         font-family: "Playfair Display", serif;
@@ -273,7 +273,7 @@
       }
       .hero-sub strong {
         font-weight: 600;
-        color: var(--danger);
+        color: var(--forest);
       }
 
       .hero-cards {
@@ -1121,7 +1121,9 @@
         color: var(--ink-4);
         line-height: 2;
       }
-
+      .headt {
+        color: var(--danger);
+      }
       /* ── SCROLL REVEAL ── */
       .reveal {
         opacity: 0;
@@ -1165,6 +1167,9 @@
       .d5 {
         animation-delay: 0.48s;
       }
+      .forest {
+        color: var(--forest);
+      }
 
       /* ── HERO CARD FLOAT ── */
       @keyframes float {
@@ -1206,11 +1211,12 @@
           <span class="hero-pill-dot"></span>SEBI Registered Advisors
         </div>
         <h1 class="fu d2">
-          You Could Be Losing <em>₹10–15 Lakhs </em> Without Realizing
+          You Could Be Losing
+          <strong class="headt">₹10–15 Lakhs </strong> Without Realizing
         </h1>
         <p class="hero-sub fu d3">
-          Check your portfolio score in <strong>30 seconds </strong> and fix
-          hidden mistakes.
+          Check your portfolio score in
+          <strong class="forest">30 seconds </strong> and fix hidden mistakes.
         </p>
         <div
           class="fu d4"
