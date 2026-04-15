@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>RupeeLetter Connect</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -17,7 +17,11 @@
 
     <!-- Vercel Web Analytics -->
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <style>
@@ -60,16 +64,16 @@
         -webkit-font-smoothing: antialiased;
       }
 
-/* Highlight text */
-.hero-title .highlight {
-  font-weight: 300; /* Black */
-  font-style: italic;
-  font-size: 46px;
-}
+      /* Highlight text */
+      .hero-title .highlight {
+        font-weight: 300; /* Black */
+        font-style: italic;
+        font-size: 46px;
+      }
 
-.hero-expert {
-  font-variant-numeric: lining-nums;
-}
+      .hero-expert {
+        font-variant-numeric: lining-nums;
+      }
       /* ── NAV ── */
       nav {
         position: fixed;
@@ -96,9 +100,11 @@
         color: var(--ink);
         font-weight: 400;
       }
-      h1, h2, .nav-logo {
-  font-family: "Fraunces", serif;
-}
+      h1,
+      h2,
+      .nav-logo {
+        font-family: "Fraunces", serif;
+      }
       .nav-tag {
         font-size: 11px;
         font-weight: 600;
@@ -984,10 +990,10 @@
         margin-bottom: 14px;
       }
       .highlight {
-  background: linear-gradient(90deg, #0f5c30, #19c268);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        background: linear-gradient(90deg, #0f5c30, #19c268);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
       .field label {
         display: block;
         font-size: 12px;
@@ -1043,7 +1049,20 @@
         text-align: center;
         margin-top: 10px;
       }
-
+      .sticky-btn {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #25d366;
+        color: white;
+        text-align: center;
+        padding: 14px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        z-index: 999;
+      }
       /* ── TOAST ── */
       #toast {
         position: fixed;
@@ -1186,7 +1205,9 @@
         <div class="hero-pill fu d1">
           <span class="hero-pill-dot"></span>SEBI Registered Advisors
         </div>
- <h1 class="fu d2">Are You Getting the <em>Best Returns</em> on Your Investments?</h1>
+        <h1 class="fu d2">
+          Are You Getting the <em>Best Returns</em> on Your Investments?
+        </h1>
         <p class="hero-sub fu d3">
           Most investors unknowingly earn
           <strong>2–4% lower returns</strong> every year. That gap compounds
@@ -1242,6 +1263,9 @@
             <div class="hc-val">Free</div>
             <div class="hc-sub">no commitment</div>
           </div>
+          <button class="btn btn-primary" onclick="openWhatsApp('hero')">
+            Get My Portfolio Score on WhatsApp
+          </button>
         </div>
       </div>
     </section>
@@ -1602,6 +1626,9 @@
           </svg>
         </button>
       </div>
+      <button class="btn btn-primary" onclick="openWhatsApp('result')">
+        👉 Fix This on WhatsApp (Free)
+      </button>
     </section>
 
     <!-- ── ADVISOR ── -->
@@ -1659,15 +1686,8 @@
           <p class="advisor-spec">
             Specialises in Mutual Funds & Portfolio Optimisation
           </p>
-          <button
-            class="btn btn-primary"
-            onclick="
-              document
-                .getElementById('form')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            Talk to Priya
+          <button class="btn btn-primary" onclick="openWhatsApp('result')">
+            Talk to Priya on WhatsApp
           </button>
         </div>
 
@@ -1724,19 +1744,8 @@
           <p class="advisor-spec">
             Specialises in Mutual Funds & Retirement Planning
           </p>
-          <button
-            class="btn btn-primary"
-            style="
-              background: #4a6cf7;
-              box-shadow: 0 4px 20px rgba(74, 108, 247, 0.25);
-            "
-            onclick="
-              document
-                .getElementById('form')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            Talk to Rohan
+          <button class="btn btn-primary" onclick="openWhatsApp('result')">
+            Talk to Rohan on WhatsApp
           </button>
         </div>
       </div>
@@ -1869,8 +1878,6 @@
     </div>
 
     <script>
-      // ─── HELPERS ─────────────────────────────────────────────────────────────────
-
       // SIP Future Value — handles r=0 edge case
       function sipFV(monthly, annualRate, years) {
         const n = years * 12;
@@ -2190,6 +2197,35 @@
       document
         .querySelectorAll(".reveal")
         .forEach((el) => observer.observe(el));
+
+      function openWhatsApp(source = "general") {
+        const phoneNumber = "91XXXXXXXXXX"; // replace with your number
+
+        // Customize message based on where user clicked
+        let message = "";
+
+        if (source === "hero") {
+          message = "Hi, I want to check my portfolio score.";
+        } else if (source === "calculator") {
+          message =
+            "Hi, I just used the calculator. Can I get a detailed portfolio analysis?";
+        } else if (source === "result") {
+          message =
+            "Hi, I saw that I'm losing money. Can you help me fix my portfolio?";
+        } else {
+          message = "Hi, I want a portfolio review.";
+        }
+
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Redirect to WhatsApp
+        const url = `https://wa.me/${918446933955}?text=${encodedMessage}`;
+        window.open(url, "_blank");
+      }
     </script>
+    <a onclick="openWhatsApp()" class="sticky-btn" style="cursor: pointer">
+      👉 Get Portfolio Review on WhatsApp
+    </a>
   </body>
-</html
+</html>
